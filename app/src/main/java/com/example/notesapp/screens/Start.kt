@@ -69,6 +69,7 @@ fun StartScreen(navController: NavHostController) {
             }
         }
     }
+
 }
 
 @Preview(showBackground = true)
