@@ -44,7 +44,9 @@ fun StartScreen(navController: NavHostController) {
             Button(
                 onClick = {
                     mViewModel.initDatabase(TYPE_ROOM)
-                    navController.navigate(route = NavRoute.Main.route)
+                    navController.navigate(NavRoute.Main.route) {
+                        popUpTo(NavRoute.Start.route) { inclusive = true }
+                    }
                 },
                 modifier = Modifier.width(200.dp).padding(vertical = 8.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -57,7 +59,9 @@ fun StartScreen(navController: NavHostController) {
             Button(
                 onClick = {
                     mViewModel.initDatabase(TYPE_FIREBASE)
-                    navController.navigate(route = NavRoute.Main.route)
+                    navController.navigate(NavRoute.Main.route) {
+                        popUpTo(NavRoute.Start.route) { inclusive = true }
+                    }
                 },
                 modifier = Modifier.width(200.dp).padding(vertical = 8.dp),
                 colors = ButtonDefaults.buttonColors(

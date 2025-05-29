@@ -2,6 +2,7 @@ package com.example.notesapp.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -19,14 +20,22 @@ sealed class NavRoute(val route: String) {
 
 
 @Composable
-fun NotesNavHost() {
-    val navController = rememberNavController()
-
-    NavHost(navController = navController, startDestination = NavRoute.Start.route) {
-        composable(NavRoute.Start.route) { StartScreen(navController = navController) }
-        composable(NavRoute.Main.route) { MainScreen(navController = navController) }
-        composable(NavRoute.Add.route) { AddScreen(navController = navController) }
-        composable(NavRoute.Note.route) { NoteScreen(navController = navController) }
+fun NotesNavHost(navController: NavHostController = rememberNavController()) {
+    NavHost(
+        navController = navController,
+        startDestination = NavRoute.Start.route
+    ) {
+        composable(NavRoute.Start.route) {
+            StartScreen(navController)
+        }
+        composable(NavRoute.Main.route) {
+            MainScreen(navController)
+        }
+        composable(NavRoute.Add.route) {
+            AddScreen(navController)
+        }
+        composable(NavRoute.Note.route) {
+            NoteScreen(navController)
+        }
     }
-
 }

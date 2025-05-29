@@ -52,14 +52,17 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(platform("androidx.compose:compose-bom:2023.10.01"))
+    implementation("androidx.compose.runtime:runtime-livedata")
+
     val nav_version = "2.7.5"
-    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation("androidx.navigation:navigation-compose:2.7.5")
 
     val room_version = "2.6.1"
     implementation("androidx.room:room-runtime:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-    implementation("androidx.compose.runtime:runtime-livedata:1.6.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
